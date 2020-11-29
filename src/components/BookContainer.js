@@ -1,6 +1,6 @@
 import React from 'react'
 import { buyBook } from '../redux';
-import {connect } from 'react-redux';
+import { connect } from 'react-redux';
 
   function BookContainer(props) {
     return (
@@ -8,17 +8,19 @@ import {connect } from 'react-redux';
             <h1 > Number of Books : {props.numberOfBooks}</h1>
             <button onClick={props.buyBook}>Buy Book</button>
         </div>
+
+        
     )
 }
 
-const mapStateToProps =(state)=>{
+const mapStatetoProps =(state)=>{
     return {
         numberOfBooks :state.numberOfBooks
     }
 }
 
 
-const mapDispatchToProps=(dispatch)=>{
+const mapDispatchtoProps=(dispatch)=>{
     return {
         buyBook:function(){
             dispatch(buyBook());
@@ -31,4 +33,4 @@ const mapDispatchToProps=(dispatch)=>{
 
 
 
-export default BookContainer;
+export default connect(mapStatetoProps,mapDispatchtoProps)(BookContainer);
